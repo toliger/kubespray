@@ -42,6 +42,7 @@
     state: present
     filename: devel-kubic-libcontainers-stable
   when: crio_kubic_debian_repo_name is defined
+  environment: "{{ proxy_env }}"
 
 - name: Add CRI-O kubic cri-o apt repo
   apt_repository:
@@ -49,6 +50,7 @@
     state: present
     filename: devel-kubic-libcontainers-stable-cri-o
   when: crio_kubic_debian_repo_name is defined
+  environment: "{{ proxy_env }}"
 
 - name: Check that amzn2-extras.repo exists
   stat:
